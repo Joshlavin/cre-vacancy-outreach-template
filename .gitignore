@@ -1,0 +1,18 @@
+# Local dev artifacts — never committed
+.env
+.env.local
+*.pyc
+__pycache__/
+.DS_Store
+
+# Per-broker hardcoded config — lives ONLY in the local plugin shipped
+# privately to a broker, NEVER in the public template repo
+_broker.yaml
+
+# Firecrawl search-result cache — large, regenerable, not worth committing
+cache/searches/
+
+# Run logs and building cache exist as scratch dirs in /tmp/cre per run.
+# They're committed empty (with .gitkeep) so the dir structure is preserved
+# when the Routine clones, but actual cache contents do not persist between
+# runs (no post-run git push).
